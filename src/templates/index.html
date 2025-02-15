@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Precio Viviendas Boston - Modelo Predictivon</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            width: 350px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+        .btn {
+            background: #ff5f6d;
+            background: linear-gradient(to right, #ff5f6d, #ffc371);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+        .prediction {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Introcucir información</h2>
+        <form action="/" method="post">
+            <input type="number" step="any" name="CRIM" placeholder="CRIM" required><br>
+            <input type="number" step="any" name="RM" placeholder="RM" required><br>
+            <input type="number" step="any" name="DIS" placeholder="DIS" required><br>
+            <input type="number" step="any" name="LSTAT" placeholder="LSTAT" required><br>
+            <input type="number" step="any" name="AGE" placeholder="AGE" required><br>
+            <button type="submit" class="btn">Predict</button>
+        </form>
+        {% if prediction != None %}
+            <div class="prediction">Prediction: {{ prediction }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
